@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://node:3000';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -11,6 +11,7 @@ const App = () => {
     const fetchMessages = async () => {
       try {
         const response = await axios.get(`${BACKEND_URL}/messages`);
+        console.log(response)
         setMessages(response.data);
       } catch (error) {
         console.error('Error fetching messages:', error);

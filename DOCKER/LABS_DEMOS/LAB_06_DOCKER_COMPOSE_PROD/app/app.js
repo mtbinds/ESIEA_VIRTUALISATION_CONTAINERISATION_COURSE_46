@@ -6,7 +6,10 @@ const mysql = require('promise-mysql');
 
 const app = express();
 
-app.use(cors())
+app.use(cors({
+  origin: '*', // Allow all origins
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
